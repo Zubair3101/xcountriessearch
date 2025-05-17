@@ -15,7 +15,7 @@ function Countries() {
 
     const timer = setTimeout(() => {
       const filtered = allCountries.filter((country) =>
-        country.name.toLowerCase().includes(e.target.value.toLowerCase())
+        country.common.toLowerCase().includes(e.target.value.toLowerCase())
       );
       setCountriesData(filtered);
     }, 500);
@@ -27,7 +27,7 @@ function Countries() {
     async function getCountriesData() {
       try {
         let rawData = await fetch(
-          "https://xcountries-backend.azurewebsites.net/all"
+          "https://countries-search-data-prod-812920491762.asia-south1.run.app/countries"
         );
         let finalData = await rawData.json();
         setAllCountries(finalData);
@@ -65,7 +65,7 @@ function Countries() {
       </div>
       <div className="country-sec">
         {countriesData.map((country, idx) => (
-          <Cardformat name={country.name} flag={country.flag} key={idx} />
+          <Cardformat name={country.common} flag={country.png} key={idx} />
         ))}
       </div>
     </>
