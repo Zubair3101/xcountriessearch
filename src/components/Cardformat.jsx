@@ -6,7 +6,7 @@ function Cardformat(props) {
   return (
     <div className="countryCard">
         <img src={props.flag} alt={`${props.name}'s Flag`} />
-        <h3>{props.name}</h3>
+        <h2>{props.name}</h2>
     </div>
   )
 }
